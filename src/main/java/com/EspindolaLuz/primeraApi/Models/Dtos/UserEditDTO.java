@@ -1,4 +1,4 @@
-package com.EspindolaLuz.primeraApi.Models.Domain;
+package com.EspindolaLuz.primeraApi.Models.Dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,10 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class UserReadDTO {
-    Integer id;
+public class UserEditDTO {
     String name;
     String surname;
-    String email;
-
 }

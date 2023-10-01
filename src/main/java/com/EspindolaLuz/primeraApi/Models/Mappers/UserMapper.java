@@ -1,7 +1,7 @@
 package com.EspindolaLuz.primeraApi.Models.Mappers;
 
-import com.EspindolaLuz.primeraApi.Models.Domain.UserAddDTO;
-import com.EspindolaLuz.primeraApi.Models.Domain.UserReadDTO;
+import com.EspindolaLuz.primeraApi.Models.Dtos.UserAddDTO;
+import com.EspindolaLuz.primeraApi.Models.Dtos.UserReadDTO;
 import com.EspindolaLuz.primeraApi.Models.Entities.UserEntity;
 import org.springframework.stereotype.Component;
 
