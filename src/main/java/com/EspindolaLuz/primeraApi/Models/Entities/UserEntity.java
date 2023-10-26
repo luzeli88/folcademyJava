@@ -30,4 +30,7 @@ public class UserEntity {
     @Column(name="contraseña", columnDefinition = "VARCHAR(100)")
     private String password;
 
+    @Column(name = "direccion")
+    private Integer addressId;
+
 }
