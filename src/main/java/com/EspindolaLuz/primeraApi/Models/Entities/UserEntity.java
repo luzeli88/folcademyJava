@@ -10,27 +10,27 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name ="users")
+@Table(name = "users")
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id", columnDefinition = "INT UNSIGNED")
+    @Column(name = "id", columnDefinition = "INT UNSIGNED")
     private Integer id;
 
-    @Column(name="nombre", columnDefinition = "VARCHAR(100)")
+    @Column(name = "nombre", columnDefinition = "VARCHAR(100)")
     private String name;
 
-    @Column(name="apellido", columnDefinition = "VARCHAR(100)")
+    @Column(name = "apellido", columnDefinition = "VARCHAR(100)")
     private String surname;
 
-    @Column(name="email", columnDefinition = "VARCHAR(100)")
+    @Column(name = "email", columnDefinition = "VARCHAR(150)")
     private String email;
 
-    @Column(name="contraseña", columnDefinition = "VARCHAR(100)")
+    @Column(name = "contraseña", columnDefinition = "VARCHAR(100)")
     private String password;
 
-    @Column(name = "direccion")
-    private Integer addressId;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private AddressEntity address;
 }

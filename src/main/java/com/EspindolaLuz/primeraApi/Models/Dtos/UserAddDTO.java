@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 
 public class UserAddDTO {
 
-    String name;
-    String surname;
+   private String name;
+   private String surname;
     //long celular;
-    String email;
-    String password;
-
+   private String email;
+   private String password;
+   private  AddressReadDTO address;
 }

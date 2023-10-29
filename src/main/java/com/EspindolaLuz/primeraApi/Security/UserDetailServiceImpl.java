@@ -2,7 +2,9 @@ package com.EspindolaLuz.primeraApi.Security;
 
 
 import com.EspindolaLuz.primeraApi.Models.Dtos.SignupRequestDTO;
+import com.EspindolaLuz.primeraApi.Models.Entities.AddressEntity;
 import com.EspindolaLuz.primeraApi.Models.Entities.UserEntity;
+import com.EspindolaLuz.primeraApi.Models.Repositories.AddressRepository;
 import com.EspindolaLuz.primeraApi.Models.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -17,6 +19,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository usuarioRepository;
+
+    @Autowired
+    private AddressRepository addressRepository;
     @Lazy
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -31,6 +36,13 @@ public class UserDetailServiceImpl implements UserDetailsService {
         newUser.setSurname(signupRequest.getSurname());
         newUser.setEmail(signupRequest.getEmail());
         newUser.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
+
+        AddressEntity address= new AddressEntity();
+        address.setNumber(signupRequest.getAddress().getNumber());
+        address.setStreet(signupRequest.getAddress().getStreet());
+        addressRepository.save(address);
+
+        newUser.setAddress(address);
 
         return usuarioRepository.save(newUser);
     }
